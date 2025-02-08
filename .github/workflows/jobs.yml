@@ -6,6 +6,7 @@ on:
 jobs:
   concurrency-job1:
     runs-on: ubuntu-latest
+    needs: build-job
     concurrency:
       group: test
     steps:
@@ -13,6 +14,7 @@ jobs:
 
   concurrency-job2:
     runs-on: ubuntu-latest
+    needs: deploy-job
     concurrency:
       group: test
     steps:
